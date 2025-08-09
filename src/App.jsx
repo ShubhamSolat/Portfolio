@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -11,18 +11,8 @@ import Footer from './components/Footer'
 function App() {
   const [darkMode, setDarkMode] = useState(false)
 
-  // Toggle 'dark' class on <html> for Tailwind dark mode
-  React.useEffect(() => {
-    const html = document.documentElement;
-    if (darkMode) {
-      html.classList.add('dark');
-    } else {
-      html.classList.remove('dark');
-    }
-  }, [darkMode]);
-
   return (
-    <div className="min-h-screen">
+    <div className={`min-h-screen ${darkMode ? 'dark' : ''}`}>
       <div className="bg-white dark:bg-gray-900 transition-colors duration-300">
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
         <main>
